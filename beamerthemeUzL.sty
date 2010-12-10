@@ -1,0 +1,95 @@
+%
+%
+%
+
+\ProvidesPackage{beamerthemeUzL}[2010/12/10 v1.0 beamer theme in the corporate design of the University of Luebeck]
+
+\mode<presentation>
+%
+\newif\ifUzL@showfootline%
+%
+\DeclareOptionBeamer{footline}[true]{\csname UzL@showfootline#1\endcsname}
+\ExecuteOptionsBeamer{footline=true}
+
+\ProcessOptionsBeamer
+
+\usecolortheme{UzL}
+\useoutertheme[subsection=false]{miniframes}
+
+\setbeamertemplate{blocks}[rounded]
+\setbeamertemplate{items}[ball]
+\setbeamertemplate{sections/subsections in toc}[ball]
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+\defbeamertemplate*{footline}{UzL theme}
+{
+\ifUzL@showfootline
+  \leavevmode%
+	\centering
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip2.7ex%0pt%
+\fi
+}
+
+\pgfdeclareimage[width=.25\paperwidth]{uzllogo}{mathlogo300dpi}
+\pgfdeclareimage[height=1.5ex]{uzlslogan}{slogan2.png}
+
+\defbeamertemplate*{headline}{UzL theme} 
+{ 
+  \leavevmode
+	\vskip1.8ex\hskip2em\pgfuseimage{uzllogo}
+    \vskip-3.5ex%
+	\hskip.28\paperwidth
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{.718\paperwidth}
+  \end{beamercolorbox}%
+	\vskip-1.1ex
+}
+
+\defbeamertemplate*{frametitle}{UzL theme}
+{%
+  \nointerlineskip%
+  \usebeamerfont{headline}%
+  \nointerlineskip%
+	\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+	\vfill
+	\hfill
+	\pgfuseimage{uzlslogan}
+	\vskip2.5ex
+  \end{beamercolorbox}%
+	\vskip-.85\paperheight
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=.95\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+	\vskip2ex
+    \usebeamerfont*{frametitle}\insertframetitle%
+      \ifx\insertframesubtitle\@empty%
+        \strut\par%
+	    \usebeamerfont{headline}%
+	    \vskip.5ex  
+	  \end{beamercolorbox}%
+      \else
+		\vskip.5ex
+        \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+	    \usebeamerfont{headline}%
+	    \vskip.5ex
+	  \end{beamercolorbox}%
+      \fi%%
+  \nointerlineskip
+}
+\setbeamersize{text margin left=2em,text margin right=2em}
+
+\mode
+<all>
+
+\makeatletter
