@@ -1,22 +1,20 @@
-\documentclass[german,10pt,xcolor=colortbl]{beamer}
-\usepackage[utf8]{inputenc}
+\documentclass[german,10pt,xcolor=colortbl
+%,draft
+]{beamer}
+\usepackage{xunicode} 
 \usepackage[OT1]{fontenc}
-\usepackage{mathptmx,courier,calc}
-\usepackage[scaled]{helvet}
+\usepackage{calc}
 \usepackage[ngerman]{babel} % Neue Rechtschreibung
 \usepackage{amsmath,amsthm,amssymb,euscript} % AMS-LaTeX  
-\usepackage{listings,wrapfig, enumerate}
+\usepackage{enumerate,graphicx}
+
+% Load Theme
+\usetheme[footline=false, slogan=false]{UzL}
 %
-\usepackage{acronym}
-\usepackage{colortbl,tabularx,graphicx}
-
-\usetheme[footline=false]{UzL}
-%\usecolortheme[RGB={0,75,90}]{structure} 
-
 \setbeamertemplate{navigation symbols}{}
-\title{Multivariate translationsinvariante Räume}
-\date[]{4. Februar 2011\\[1ex] 21. Rhein-Ruhr-Workshop in Königswinter}
-\author[R. Bergmann]{Dipl.-Inf. R. Bergmann}
+\title{Beispielpräsentation}
+\date[5. Feb]{5. Februar 2011\\[1ex] Workshop on Corporate Design Stuff}
+\author[R. Bergmann]{Ronny Bergmann}
 \institute[Universität zu Lübeck]{Institut für Mathematik\\Universität zu Lübeck}
 \begin{document}
 
@@ -50,41 +48,27 @@
 			\vskip.7\baselineskip
 	  \end{beamercolorbox}%
 	\end{frame}
-	
+	\section{Einleitung}
 	\begin{frame}{Inhalt}
 		\tableofcontents%[sections=<1-4>]
 	\end{frame}
-	\section{Muster}
-	\begin{frame}{Title}{Subtitle}
-		ABC und hier noch ein wenig text bis er umbricht und dann schauen wir mal was so passiert.
+	
+	\begin{frame}{Einleitung - Motivation}
+	ABC
+	\begin{lemma}[Ein Beispiellemma]
+		Ist das hier und es gilt.
+	\end{lemma}
+	\begin{example}
+		Ein Beispiel, wie dieses hier
+	\end{example}
+	\begin{alert}
+		Etwas Hervorgehobenes
+	\end{alert}
 	\end{frame}
 	
-	\section{Translationsinvarianz}
-	\begin{frame}{Title}{Subtitle}
-		\begin{example}[ABC]
-			CDExample
-		\end{example}
-		\begin{block}[ABC]
-			block
-		\end{block}
-		\begin{definition}[Bin ich]
-			auch
-		\end{definition}
+	\begin{frame}{TODO}
+		\begin{itemize}
+			\item Literatur?
+		\end{itemize}
 	\end{frame}
-	\begin{frame}{Title}{Subtitle}
-		\begin{alert}[ABC]
-			asfg
-		\end{alert}
-	\end{frame}
-	\section{Inklusionsbeziehung}
-	\begin{frame}{Title}{Subtitle}
-		ABC
-	\end{frame}
-	\begin{frame}{Title}{Subtitle}
-		ABC
-	\end{frame}
-	\begin{frame}{Title}{Subtitle}
-		ABC
-	\end{frame}
-
 \end{document}

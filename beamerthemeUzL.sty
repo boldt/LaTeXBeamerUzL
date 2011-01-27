@@ -11,7 +11,26 @@
 \DeclareOptionBeamer{footline}[true]{\csname UzL@showfootline#1\endcsname}
 \ExecuteOptionsBeamer{footline=true}
 
+%
+\newif\ifUzL@showslogan%
+%
+\DeclareOptionBeamer{slogan}[true]{\csname UzL@showslogan#1\endcsname}
+\ExecuteOptionsBeamer{slogan=true}
+
+%
+\newif\ifUzL@useMyriad%
+%
+\DeclareOptionBeamer{useMyriad}[true]{\csname UzL@useMyriad#1\endcsname}
+\ExecuteOptionsBeamer{useMyriad=true}
+
 \ProcessOptionsBeamer
+
+% Ater Processing the variable is correct so load Myriad (Standard) if not disabled
+\ifUzL@useMyriad
+\RequirePackage[no-math]{fontspec} 
+\RequirePackage{xltxtra} 
+\RequirePackage{MnSymbol}
+\fi
 
 \usecolortheme{UzL}
 \useoutertheme[subsection=false]{miniframes}
@@ -42,7 +61,7 @@
 \fi
 }
 
-\pgfdeclareimage[width=.25\paperwidth]{uzllogo}{mathlogo300dpi}
+\pgfdeclareimage[width=.25\paperwidth]{uzllogo}{logos/mathlogo300dpi}
 \pgfdeclareimage[height=1.5ex]{uzlslogan}{slogan2.png}
 
 \defbeamertemplate*{headline}{UzL theme} 
@@ -65,7 +84,9 @@
 	\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
 	\vfill
 	\hfill
-	\pgfuseimage{uzlslogan}
+	\ifUzL@showslogan
+		\pgfuseimage{uzlslogan}
+	\fi
 	\vskip1.3\baselineskip
   \end{beamercolorbox}%
 	\vskip-.85\paperheight
