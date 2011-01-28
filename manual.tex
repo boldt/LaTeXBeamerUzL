@@ -1,0 +1,161 @@
+\documentclass[a4paper,DIV=calc, oneside]{scrartcl}
+\usepackage[no-math]{fontspec} 
+\usepackage{xunicode,xltxtra} 
+\defaultfontfeatures{Scale=MatchLowercase} 
+\usepackage{amsmath,amsthm,euscript} % AMS-LaTeX  
+\defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
+\setsansfont[Ligatures={Common}]{Myriad Pro}
+%\setromanfont[Ligatures={Common}]{MinionPro}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{MnSymbol}
+
+\usepackage{calc,scrpage2}
+\usepackage{listings,wrapfig, enumerate}
+\usepackage[ngerman]{babel} % Neue Rechtschreibung
+\usepackage{graphicx,hyperref,booktabs}
+\usepackage[pdftex,dvipsnames]{xcolor}
+\definecolor{UzLcolor}{cmyk}{1,.0,.20,.78}
+\definecolor{UzLred}{cmyk}{0,.87,.89,.24}
+
+%\colorlet{maincolor}{black}
+\colorlet{mixcolor}{black!50}
+
+\lstloadlanguages{TeX}
+\lstset{basicstyle={\rmfamily\small},numbers=left,numberstyle=\tiny\color{UzLcolor},numbersep=5pt, breaklines=true, captionpos={t},language={},frame=none,numbers=left,tabsize=3, showspaces=false, showtabs=false, columns=fixed}	
+\setlength{\parindent}{1em} 
+\setlength{\parskip}{0em}	
+\setlength{\marginparwidth}{3cm}
+\colorlet{maincolor}{black!80}
+
+\hypersetup{ 
+   pdftitle={Karteikarten in LaTeX}%
+	  ,pdfauthor={Ronny Bergmann}%
+	  ,pdfcreator={LaTeX, hyperref, KOMA-Script, TextMate},
+   pdfkeywords={Cards, Karteikarten, TeX, Paket, Anleitung, Manual}, 
+   pdfdisplaydoctitle,
+   bookmarksnumbered=true,
+   bookmarksopen=true,
+   bookmarksopenlevel=1,
+   plainpages=false,
+   bookmarksnumbered,
+   pdfborder={0 0 0}
+   }
+
+\addtokomafont{sectioning}{\color{UzLcolor}}
+\setkomafont{descriptionlabel}{\bfseries\color{UzLcolor}}
+\newcommand{\todo}[1]{{\color{red}!}\marginpar{\texttt{\color{red}#1}}}
+\newcommand{\missing}{{\color{red}!}}
+\newcommand{\missingcmd}[1]{\marginpar{\texttt{#1}\ {\color{red}!}}}
+\newcommand{\cmd}[1]{\marginpar{\texttt{#1}}}
+
+\defpagestyle{plain}%
+{{\includegraphics[height=2\baselineskip]{logos/unilogo300dpi.png}}{}{}}%
+{{\includegraphics[height=2\baselineskip]{logos/unilogo300dpi.png}}{}{}}%
+
+
+
+  \setheadwidth[0pt]{textwithmarginpar}
+  \setheadsepline[\textwidth]{current}[]
+  
+  \newcommand{\pagenumboxright}{%
+%		\colorbox{UzLcolor!20}{
+			\parbox[c][4ex][c]{\marginparwidth}{{\color{gray}$\bigl|$}\hspace{1.5em}\thepage}
+%		}
+	}
+	  \newcommand{\pagenumboxleft}{%
+	%		\colorbox{UzLcolor!20}{
+				\parbox[c][4ex][c]{\marginparwidth}{\thepage\hspace{1.5em}{\color{gray}$\bigl|$}}
+	%		}
+		}
+
+
+  \newcommand{\headerleftbox}{
+%		\colorbox{maincolor!20}{
+			\parbox[c][4ex][c]{\textwidth}{\quad\displaytitle\quad\quad\leftmark}
+%		}
+	}
+  \newcommand{\headerrightbox}{
+%		\colorbox{maincolor!20}{
+			\parbox[c][4ex][c]{\textwidth}{\quad\rightmark}
+%		}
+	}
+  \renewcommand{\headfont}{%
+		%\color{maincolor}%
+		\footnotesize}
+  
+  % left header
+  \newcommand{\myleftheader}{%
+    \setlength{\fboxsep}{0pt}%
+    \pagenumboxleft%
+    \hfill\headerleftbox%
+  }
+
+  % right header
+  \newcommand{\myrightheader}{%
+    \setlength{\fboxsep}{0pt}%
+    \headerrightbox\hfill\pagenumboxright%
+  }
+
+  % left footer
+  \newcommand{\myleftfooter}{\normalfont%\thepage
+	\hfill}
+
+  % right footer
+  \newcommand{\myrightfooter}{\hfill\normalfont%\thepage
+			}
+
+% defining pagestyle
+  \defpagestyle{mypagestyle}%
+    {{\myleftheader}{\myrightheader}{\myrightheader}}%
+    {{\myleftfooter}{\myrightfooter}{\myrightfooter}}%
+
+
+
+  \pagestyle{mypagestyle}
+
+%
+%
+% Dokumentanfang
+%
+%
+
+\begin{document}
+	\thispagestyle{empty}
+\title{Ein \LaTeX-Beamer-Theme im Corporate-Design der Universität zu Lübeck\\{\large\normalfont Version 0.8}}
+\author{Ronny Bergmann\\\emph{bergmann@math.uni-luebeck.de}}
+\date{Januar 2010}
+\maketitle
+\section{Einleitung}
+Seit der Einführung des Corporate Design für die Universität zu Lübeck im April 2009 sind viele Schritte zu einem einheitlichen Auftreten der Universität unternommen worden. Dieses \LaTeX-Beamer-Theme überträgt nun die Ideen der
+Powerpoint-Vorlage auf \LaTeX. Dabei ist der Standard so orientiert, dass exakt die Folien wie in der Vorlage entstehen.
+
+Zusätzlich gibt es viele Optionen, die eine Anpassung ermöglichen, etwa bezüglich weiterer Logo-Einblendunden oder
+einer Fußzeile mit Folienzahlen, die in \LaTeX\ häufig Verwendung findet. Die Einstellungen können direkt beim Einbinden als Optionen gegeben werden, aber auch später neu gesetzt werden.
+
+\section{Paketoptionen}
+Eine Übersicht mit Stichpunktartiger Erklärung findet sich in Tabelle \ref{tab:Paketoptionen}
+\begin{table}
+	\begin{tabular}{llll}
+		\toprule
+		\textbf{Paketoption} & \textbf{Beschreibung}\\\midrule
+		\lstinline!footline=true|false! & Anzeige der Fußzeile an bzw. \textbf{aus}\\
+		\lstinline!logos=1|2|3! \missing & Anzahl zu definierender Logos, Standard: 1\\
+		\lstinline!naviagation=true|false! \missing & Navigations-Zeile neben dem Logo \textbf{an} bzw. aus.\\
+		\lstinline!pagetotal=true|false! \missing & Anzeige der Gesamtfolienanzahl \textbf{an} bzw. aus\\
+		\lstinline!slogan=true|false! & Anzeige des Slogans „Im Focus das Leben“ \textbf{an} bzw. aus\\
+		\lstinline!useMyriad=true|false! & Verwendung der Hausschriftart Myriad Pro \textbf{an} bzw. aus\\\bottomrule
+	\end{tabular}
+	\caption{Paketoptionen, die bei Aktivierung des Themes mitgegeben werden können}
+	\label{tab:Paketoptionen}
+\end{table}
+\section{Befehle}
+\missingcmd{setlogo}
+\missingcmd{setlogowidth}
+\section{mögliche weitere Features}
+\section{bekannte Probleme}
+Die Verwendung der Hausschriftart Myriad Pro stellt sich unter \LaTeX\ als eine Herausforderung heraus. Momentan funktioniert das Paket nur im Zusammenspiel mit dem etwas neueren XeTeX-Compiler, eine Anpassung auch an \lstinline!pdflatex! wäre aufgrund der Kompatibillität wünschenswert. Auf die Installation der Schrift soll hier nicht eingegangen werden.
+\section{weitere Quellen des Paketes}
+Git-Adresse
+Adresse auf der HP
+\newpage
+\end{document}
