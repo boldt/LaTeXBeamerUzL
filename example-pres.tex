@@ -9,45 +9,20 @@
 \usepackage{enumerate,graphicx}
 
 % Load Theme
-\usetheme[footline=false, slogan=false]{UzL}
+\usetheme[footline=true, slogan=false]{UzL}
 %
 \setbeamertemplate{navigation symbols}{}
 \title{Beispielpräsentation}
-\date[5. Feb]{5. Februar 2011\\[1ex] Workshop on Corporate Design Stuff}
+\subtitle{Eines Vortrages im neuen Design mit \LaTeX}
+\date[]{5. Februar 2011\\[1ex] Workshop on Corporate Design Stuff}
 \author[R. Bergmann]{Ronny Bergmann}
 \institute[Universität zu Lübeck]{Institut für Mathematik\\Universität zu Lübeck}
 \begin{document}
 
-	\begin{frame}[plain]
-		\leavevmode
-		\vskip-.2ex
-		\hskip-1.1em
-	  \pgfuseimage{uzllogo}
-		\vskip.5ex
-  	  \begin{beamercolorbox}[wd=.95\paperwidth, ht=.853\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
-			\centering
-		    {\usebeamerfont*{frametitle}\inserttitle}%
-		    \vskip6ex
-			{\usebeamerfont*{text}\color{black}
-			\insertauthor
-			\vskip6ex
-			}
-			{\usebeamerfont*{text}
-			\small
-			\color{black}\insertinstitute
-			\vskip6ex
-			}
-			{\usebeamerfont*{text}\usebeamercolor{text}
-				\insertdate}
-			\vskip4ex  
-			\vfill
-			\vskip2ex
-			\hfill\hskip-1.8em\pgfuseimage{uzlslogan}
-			\begin{beamercolorbox}[wd=.9em]{frametitle}
-			\end{beamercolorbox}
-			\vskip.7\baselineskip
-	  \end{beamercolorbox}%
+	\begin{frame}
+		\titlepage
 	\end{frame}
+	
 	\section{Einleitung}
 	\begin{frame}{Inhalt}
 		\tableofcontents%[sections=<1-4>]
@@ -61,11 +36,14 @@
 	\begin{example}
 		Ein Beispiel, wie dieses hier
 	\end{example}
-	\begin{alert}
-		Etwas Hervorgehobenes
-	\end{alert}
+	\alert{ACHTUNG!}
+		Etwas Hervorgehobenes. Die Farben sind bisher alle dem Handbuch zum Corporate Design entnommen.
 	\end{frame}
-	
+	\begin{frame}{Further}{Ein Untertitel auf deutsch.}
+			\begin{proof}
+				Weil.
+			\end{proof}
+	\end{frame}
 	\begin{frame}{TODO}
 		\begin{itemize}
 			\item Literatur?

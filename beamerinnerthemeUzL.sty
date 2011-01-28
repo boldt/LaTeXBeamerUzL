@@ -1,0 +1,46 @@
+%
+% Inner Theme elements, e.g. the titlepage definition
+%
+%
+%
+
+%
+%
+% Title Page
+%
+%
+\defbeamertemplate*{title page}{UzL}
+{
+	\setbeamertemplate{headline}[default] 
+	\setbeamertemplate{footline}[plain] 
+	\vspace{-.25ex}
+	\begin{beamercolorbox}[wd=.95\paperwidth, ht=.853\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+			\centering
+		    {
+		    	\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle\par
+		    	\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}\insertsubtitle
+			}%
+		    \vskip6ex
+			{
+		    	\usebeamercolor[fg]{author}\usebeamerfont{author}\insertauthor\par
+			\vskip6ex
+			}
+			{\usebeamerfont*{text}
+			\small
+		    	\usebeamercolor[fg]{institute}\usebeamerfont{institute}\insertinstitute\par
+			\vskip6ex
+			}
+			{
+	    		\usebeamercolor[fg]{date}\usebeamerfont{date}\insertdate\par
+			}
+			\vskip4ex  
+			\vfill
+			\vskip1.8ex
+			\ifUzL@showslogan
+				\hfill\hskip-1.8em\pgfuseimage{uzlslogan}
+			\fi
+			\begin{beamercolorbox}[wd=.9em]{frametitle}
+			\end{beamercolorbox}
+			\vskip.7\baselineskip
+	  \end{beamercolorbox}%
+}

@@ -6,11 +6,15 @@
 
 \mode<presentation>
 %
+%  Option: Display Footline on_/off
+%
 \newif\ifUzL@showfootline%
 %
 \DeclareOptionBeamer{footline}[true]{\csname UzL@showfootline#1\endcsname}
 \ExecuteOptionsBeamer{footline=true}
 
+%
+%  Option: Display Slogan on_/off
 %
 \newif\ifUzL@showslogan%
 %
@@ -18,30 +22,54 @@
 \ExecuteOptionsBeamer{slogan=true}
 
 %
+%  Option: Use Myriad on_/off
+%
 \newif\ifUzL@useMyriad%
 %
 \DeclareOptionBeamer{useMyriad}[true]{\csname UzL@useMyriad#1\endcsname}
 \ExecuteOptionsBeamer{useMyriad=true}
 
+%
+%  Option: Display Total Frame Number in Footline (only inf visible) on_/off
+%
+\newif\ifUzL@displayTotalFramenumber%
+%
+\DeclareOptionBeamer{displayTotalFrameNumber}[true]{\csname UzL@displayTotalFrameNumber#1\endcsname}
+\ExecuteOptionsBeamer{displayTotalFrameNumber}
+
+%
+%  Option: Display Total Frame Number in Footline (only inf visible) on_/off
+%
+\newif\ifUzL@displayNavigation%
+%
+\DeclareOptionBeamer{displayNavigation}[true]{\csname UzL@displayNavigation#1\endcsname}
+\ExecuteOptionsBeamer{displayNavigation}
+
 \ProcessOptionsBeamer
 
-% Ater Processing the variable is correct so load Myriad (Standard) if not disabled
+% After Processing Options the variable is correct so load Myriad (Standard) if not disabled
 \ifUzL@useMyriad
 \RequirePackage[no-math]{fontspec} 
 \RequirePackage{xltxtra} 
 \RequirePackage{MnSymbol}
 \fi
 
+
+%
+% Images
+%
+\pgfdeclareimage[width=.25\paperwidth]{uzllogo}{logos/mathlogo300dpi}
+\pgfdeclareimage[height=1.5ex]{uzlslogan}{logos/slogan2.png}
+
 \usecolortheme{UzL}
+\useinnertheme{UzL}
 \useoutertheme[subsection=false]{miniframes}
 
 \setbeamertemplate{blocks}[rounded]
 \setbeamertemplate{items}[ball]
 \setbeamertemplate{sections/subsections in toc}[ball]
-\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
-\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
 
-\defbeamertemplate*{footline}{UzL theme}
+\defbeamertemplate*{footline}{UzL}
 {
 \ifUzL@showfootline
   \leavevmode%
@@ -55,28 +83,31 @@
   \end{beamercolorbox}%
   \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
     \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+    \insertframenumber{}%
+ 	\ifUzL@displayTotalFramenumber%
+		/ \inserttotalframenumber%
+	\fi%
+	\hspace*{2ex}%
   \end{beamercolorbox}}%
   \vskip2.7ex%0pt%
 \fi
 }
 
-\pgfdeclareimage[width=.25\paperwidth]{uzllogo}{logos/mathlogo300dpi}
-\pgfdeclareimage[height=1.5ex]{uzlslogan}{slogan2.png}
-
-\defbeamertemplate*{headline}{UzL theme} 
+\defbeamertemplate*{headline}{UzL} 
 { 
   \leavevmode
 	\vskip1.8ex\hskip2em\pgfuseimage{uzllogo}
     \vskip-3.5ex%
 	\hskip.28\paperwidth
   \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
-    \insertnavigation{.718\paperwidth}
+	\ifUzL@displayNavigation
+    	\insertnavigation{.718\paperwidth}
+	\fi
   \end{beamercolorbox}%
 	\vskip-1.1ex
 }
 
-\defbeamertemplate*{frametitle}{UzL theme}
+\defbeamertemplate*{frametitle}{UzL}
 {%
   \nointerlineskip%
   \usebeamerfont{headline}%
