@@ -12,6 +12,9 @@
 %
 \DeclareOptionBeamer{footline}[true]{\csname UzL@showfootline#1\endcsname}
 \ExecuteOptionsBeamer{footline=true}
+%
+\DeclareOptionBeamer{displayfootline}{\Uzl@showfootlinetrue}
+\DeclareOptionBeamer{nofootline}{\Uzl@showfootlinefalse}
 
 %
 %  Option: Display Slogan on_/off
@@ -20,30 +23,52 @@
 %
 \DeclareOptionBeamer{slogan}[true]{\csname UzL@showslogan#1\endcsname}
 \ExecuteOptionsBeamer{slogan=true}
+%alternative commands
+\DeclareOptionBeamer{displayslogan}{\Uzl@showslogantrue}
+\DeclareOptionBeamer{noslogan}{\Uzl@showsloganfalse}
+
 
 %
 %  Option: Use Myriad on_/off
 %
 \newif\ifUzL@useMyriad%
 %
-\DeclareOptionBeamer{useMyriad}[true]{\csname UzL@useMyriad#1\endcsname}
-\ExecuteOptionsBeamer{useMyriad=true}
+\DeclareOptionBeamer{myriad}[true]{\csname UzL@useMyriad#1\endcsname}
+\ExecuteOptionsBeamer{myriad=true}
+% alternate commands
+\DeclareOptionBeamer{usemyriad}{\Uzl@useMyriadtrue}
+\DeclareOptionBeamer{nomyriad}{\Uzl@useMyriadfalse}
 
 %
 %  Option: Display Total Frame Number in Footline (only inf visible) on_/off
 %
 \newif\ifUzL@displayTotalFramenumber%
 %
-\DeclareOptionBeamer{displayTotalFrameNumber}[true]{\csname UzL@displayTotalFrameNumber#1\endcsname}
-\ExecuteOptionsBeamer{displayTotalFrameNumber}
+\DeclareOptionBeamer{TotalFrameNumber}[true]{\csname UzL@displayTotalFrameNumber#1\endcsname}
+\ExecuteOptionsBeamer{TotalFrameNumber}
+% alternate
+\DeclareOptionBeamer{displaytotalframefumber}{\Uzl@displayTotalFrameNumbertrue}
+\DeclareOptionBeamer{nototalframenumber}{\Uzl@displayTotalFrameNumberfalse}
 
 %
 %  Option: Display Total Frame Number in Footline (only inf visible) on_/off
 %
-\newif\ifUzL@displayNavigation%
+\newnum\ifUzL@displayNavigation%
 %
-\DeclareOptionBeamer{displayNavigation}[true]{\csname UzL@displayNavigation#1\endcsname}
-\ExecuteOptionsBeamer{displayNavigation}
+\newcommand{\UzL@logonum}{1}%
+\DeclareOptionBeamer{logo}[1]{\renewcommand{\Uzl@logonum}{#1}}%
+\ExecuteOptionsBeamer{logo=1}%
+%For storing image stuff
+\DeclareOptionBeamer{logo1}[]{\renewcommand{\Uzl@logonum}{#1}}%
+\DeclareOptionBeamer{logo2}[]{\renewcommand{\Uzl@logonum}{#1}}%
+\DeclareOptionBeamer{logo3}[]{\renewcommand{\Uzl@logonum}{#1}}%
+
+%
+% Logo Option, define Logo number directly or by using some of logocount <=3
+%
+
+\newcommand{}
+%
 
 \ProcessOptionsBeamer
 
