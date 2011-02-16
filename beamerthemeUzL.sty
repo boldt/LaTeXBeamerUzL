@@ -3,7 +3,7 @@
 %
 
 \ProvidesPackage{beamerthemeUzL}[2010/12/10 v1.0 beamer theme in the corporate design of the University of Luebeck]
-
+\RequirePackage{ifthen}
 \mode<presentation>
 %
 %  Option: Display Footline on_/off
@@ -14,7 +14,7 @@
 \ExecuteOptionsBeamer{footline=true}
 %
 \DeclareOptionBeamer{displayfootline}{\Uzl@showfootlinetrue}
-\DeclareOptionBeamer{nofootline}{\Uzl@showfootlinefalse}
+\DeclareOptionBeamer{hidefootline}{\Uzl@showfootlinefalse}
 
 %
 %  Option: Display Slogan on_/off
@@ -25,7 +25,7 @@
 \ExecuteOptionsBeamer{slogan=true}
 %alternative commands
 \DeclareOptionBeamer{displayslogan}{\Uzl@showslogantrue}
-\DeclareOptionBeamer{noslogan}{\Uzl@showsloganfalse}
+\DeclareOptionBeamer{hideslogan}{\Uzl@showsloganfalse}
 
 
 %
@@ -44,30 +44,33 @@
 %
 \newif\ifUzL@displayTotalFramenumber%
 %
-\DeclareOptionBeamer{TotalFrameNumber}[true]{\csname UzL@displayTotalFrameNumber#1\endcsname}
-\ExecuteOptionsBeamer{TotalFrameNumber}
+\DeclareOptionBeamer{frametotal}[true]{\csname UzL@displayTotalFrameNumber#1\endcsname}
+\ExecuteOptionsBeamer{frametotal}
 % alternate
-\DeclareOptionBeamer{displaytotalframefumber}{\Uzl@displayTotalFrameNumbertrue}
-\DeclareOptionBeamer{nototalframenumber}{\Uzl@displayTotalFrameNumberfalse}
+\DeclareOptionBeamer{displayframetotal}{\Uzl@displayTotalFrameNumbertrue}
+\DeclareOptionBeamer{hideframetotal}{\Uzl@displayTotalFrameNumberfalse}
 
 %
 %  Option: Display Total Frame Number in Footline (only inf visible) on_/off
 %
-\newnum\ifUzL@displayNavigation%
+\newif\ifUzL@displayNavigation%
 %
-\newcommand{\UzL@logonum}{1}%
-\DeclareOptionBeamer{logo}[1]{\renewcommand{\Uzl@logonum}{#1}}%
-\ExecuteOptionsBeamer{logo=1}%
-%For storing image stuff
-\DeclareOptionBeamer{logo1}[]{\renewcommand{\Uzl@logonum}{#1}}%
-\DeclareOptionBeamer{logo2}[]{\renewcommand{\Uzl@logonum}{#1}}%
-\DeclareOptionBeamer{logo3}[]{\renewcommand{\Uzl@logonum}{#1}}%
+\DeclareOptionBeamer{navigation}[true]{\csname UzL@displayNavigation#1\endcsname}
+\ExecuteOptionsBeamer{navigation}
+\DeclareOptionBeamer{hidenavigation}{\UzL@displayNavigationfalse}
+\DeclareOptionBeamer{displaynavigation}{\UzL@displayNavigationtrue}
 
 %
 % Logo Option, define Logo number directly or by using some of logocount <=3
 %
-
-\newcommand{}
+%
+\newcommand{\UzL@logonum}[0]{}%
+\DeclareOptionBeamer{logo}[1]{\renewcommand{\UzL@logonum}{#1}}%
+\ExecuteOptionsBeamer{logo=1}%
+%For storing image stuff
+\DeclareOptionBeamer{logo1}[]{\renewcommand{\UzL@logonum}{#1}}%
+\DeclareOptionBeamer{logo2}[]{\renewcommand{\UzL@logonum}{#1}}%
+\DeclareOptionBeamer{logo3}[]{\renewcommand{\UzL@logonum}{#1}}%
 %
 
 \ProcessOptionsBeamer
@@ -84,7 +87,7 @@
 % Images
 %
 \pgfdeclareimage[width=.25\paperwidth]{uzllogo}{logos/mathlogo300dpi}
-\pgfdeclareimage[height=1.5ex]{uzlslogan}{logos/slogan2.png}
+\pgfdeclareimage[height=2.75mm]{uzlslogan}{logos/slogan2.png}
 
 \usecolortheme{UzL}
 \useinnertheme{UzL}
@@ -95,28 +98,36 @@
 \setbeamertemplate{sections/subsections in toc}[ball]
 
 \defbeamertemplate*{footline}{UzL}
-{
-\ifUzL@showfootline
-  \leavevmode%
-	\centering
-  \hbox{%
-  \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor~~(\insertshortinstitute)
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.3166666\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
-    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
-    \insertframenumber{}%
- 	\ifUzL@displayTotalFramenumber%
-		/ \inserttotalframenumber%
-	\fi%
-	\hspace*{2ex}%
-  \end{beamercolorbox}}%
-  \vskip2.7ex%0pt%
+{%
+	\ifUzL@showfootline
+		\leavevmode%
+		\centering
+		\hbox{%
+			\begin{beamercolorbox}[wd=.31\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor%
+			\ifx\insertshortinstitute\@empty%
+			\ %
+			\else%
+				~~(\insertshortinstitute)%
+			\fi%
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.31\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+				\usebeamerfont{title in head/foot}\insertshorttitle
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=.31\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+				\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+				\insertframenumber{}%
+				\ifUzL@displayTotalFramenumber%
+					/ \inserttotalframenumber%
+				\fi%
+				\hspace*{2ex}%
+			\end{beamercolorbox}
+		}%
+		\vskip3.7ex%
 \fi
 }
+
+\defbeamertemplate{footline}{UzLplain}{}
 
 \defbeamertemplate*{headline}{UzL} 
 { 
@@ -132,39 +143,64 @@
 	\vskip-1.1ex
 }
 
+\defbeamertemplate{headline}{UzLplain} 
+{ 
+  \leavevmode
+	\vskip1.8ex\hskip2em\pgfuseimage{uzllogo}
+    \vskip-3.5ex%
+	\hskip.28\paperwidth
+  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+  \end{beamercolorbox}%
+	\vskip-1.1ex
+}
+
+
 \defbeamertemplate*{frametitle}{UzL}
 {%
-  \nointerlineskip%
-  \usebeamerfont{headline}%
-  \nointerlineskip%
+	\nointerlineskip%
+	\usebeamerfont{headline}%
+	\nointerlineskip%
 	\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
-	\vfill
-	\hfill
-	\ifUzL@showslogan
-		\pgfuseimage{uzlslogan}
-	\fi
-	\vskip1.3\baselineskip
-  \end{beamercolorbox}%
+		\vfill
+		\hfill
+		\ifUzL@showslogan
+			\pgfuseimage{uzlslogan}
+		\fi
+		\vskip1.3\baselineskip
+	\end{beamercolorbox}%
 	\vskip-.85\paperheight
-  \nointerlineskip%
-  \begin{beamercolorbox}[wd=.95\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
-	\vskip2ex
-    \usebeamerfont*{frametitle}\insertframetitle%
-      \ifx\insertframesubtitle\@empty%
-        \strut\par%
-	    \usebeamerfont{headline}%
-	    \vskip.5ex  
-	  \end{beamercolorbox}%
-      \else
-		\vskip.5ex
-        \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
-	    \usebeamerfont{headline}%
-	    \vskip.5ex
-	  \end{beamercolorbox}%
-      \fi%%
-  \nointerlineskip
+	\nointerlineskip%
+	\begin{beamercolorbox}[wd=.95\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+		\vskip2ex%
+		\usebeamerfont*{frametitle}\insertframetitle%
+		\ifx\insertframesubtitle\@empty%
+			\strut\par%
+			\vskip.5ex
+	\end{beamercolorbox}%
+		\else
+			\vskip.5ex
+			\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+			\vskip.5ex
+	\end{beamercolorbox}%
+		\fi%%
+	\nointerlineskip%
 }
 \setbeamersize{text margin left=2em,text margin right=2em}
+
+\renewcommand{\maketitle}[0]
+{%
+	\setbeamertemplate{headline}[UzLplain]%
+	\setbeamertemplate{footline}[UzLplain]%
+	\ifbeamer@inframe%
+		\vspace{1.3ex}%
+		\titlepage%
+	\else%
+		\frame[t]{\titlepage}%
+	\fi%
+  	\setbeamertemplate{headline}[UzL]%
+	\setbeamertemplate{footline}[UzL]%
+}
+
 
 \mode
 <all>
