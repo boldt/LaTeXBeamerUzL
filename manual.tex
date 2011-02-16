@@ -28,17 +28,18 @@
 \colorlet{maincolor}{black!80}
 
 \hypersetup{ 
-   pdftitle={Karteikarten in LaTeX}%
-	  ,pdfauthor={Ronny Bergmann}%
-	  ,pdfcreator={LaTeX, hyperref, KOMA-Script, TextMate},
-   pdfkeywords={Cards, Karteikarten, TeX, Paket, Anleitung, Manual}, 
+   pdftitle={LaTeX-Beamer Theme im Corporate Design der Universität zu Lübeck},%
+   pdfauthor={Ronny Bergmann},%
+   pdfcreator={LaTeX, KOMA-Script, TextMate},
+   pdfkeywords={LaTeX, Beamer, Theme, UzL, Universität zu Lübeck},
    pdfdisplaydoctitle,
    bookmarksnumbered=true,
    bookmarksopen=true,
    bookmarksopenlevel=1,
    plainpages=false,
    bookmarksnumbered,
-   pdfborder={0 0 0}
+   pdfborder={0 0 0},
+linkcolor=maincolor
    }
 
 \addtokomafont{sectioning}{\color{UzLcolor}}
@@ -123,14 +124,16 @@
 	\thispagestyle{empty}
 \title{Ein \LaTeX-Beamer-Theme im Corporate-Design der Universität zu Lübeck\\{\large\normalfont Version 0.8}}
 \author{Ronny Bergmann\\\emph{bergmann@math.uni-luebeck.de}}
-\date{Januar 2010}
+\date{Januar 2011}
 \maketitle
 \section{Einleitung}
-Seit der Einführung des Corporate Design für die Universität zu Lübeck im April 2009 sind viele Schritte zu einem einheitlichen Auftreten der Universität unternommen worden. Dieses \LaTeX-Beamer-Theme überträgt nun die Ideen der
+Seit der Einführung des Corporate Design für die Universität zu Lübeck im April 2010 sind viele Schritte zu einem einheitlichen Auftreten der Universität unternommen worden. Dieses \LaTeX-Beamer-Theme überträgt nun die Ideen der
 Powerpoint-Vorlage auf \LaTeX. Dabei ist der Standard so orientiert, dass exakt die Folien wie in der Vorlage entstehen.
 
 Zusätzlich gibt es viele Optionen, die eine Anpassung ermöglichen, etwa bezüglich weiterer Logo-Einblendunden oder
 einer Fußzeile mit Folienzahlen, die in \LaTeX\ häufig Verwendung findet. Die Einstellungen können direkt beim Einbinden als Optionen gegeben werden, aber auch später neu gesetzt werden.
+
+Dabei sind Stellen, die mit \missing\  markiert sind, noch nicht implementiert.
 
 \section{Paketoptionen}
 Eine Übersicht mit Stichpunktartiger Erklärung findet sich in Tabelle \ref{tab:Paketoptionen}
@@ -140,22 +143,31 @@ Eine Übersicht mit Stichpunktartiger Erklärung findet sich in Tabelle \ref{tab
 		\textbf{Paketoption} & \textbf{Beschreibung}\\\midrule
 		\lstinline!footline=true|false! & Anzeige der Fußzeile an bzw. \textbf{aus}\\
 		\lstinline!logos=1|2|3! \missing & Anzahl zu definierender Logos, Standard: 1\\
-		\lstinline!displayNaviagation=true|false! & Navigations-Zeile neben dem Logo \textbf{an} bzw. aus.\\
-		\lstinline!displayTotalFrameNumber=true|false! & Anzeige der Gesamtfolienanzahl \textbf{an} bzw. aus\\
+		\lstinline!naviagation=true|false! & Navigations-Zeile neben dem Logo \textbf{an} bzw. aus.\\
+		\lstinline!frametotal=true|false! & Anzeige der Gesamtfolienanzahl \textbf{an} bzw. aus\\
 		\lstinline!slogan=true|false! & Anzeige des Slogans „Im Focus das Leben“ \textbf{an} bzw. aus\\
-		\lstinline!useMyriad=true|false! & Verwendung der Hausschriftart Myriad Pro \textbf{an} bzw. aus\\\bottomrule
+		\lstinline!myriad=true|false! & Verwendung der Hausschriftart Myriad Pro \textbf{an} bzw. aus\\\bottomrule
 	\end{tabular}
 	\caption{Paketoptionen, die bei Aktivierung des Themes mitgegeben werden können}
 	\label{tab:Paketoptionen}
 \end{table}
 \section{Befehle}
+Mit dem Befehl \lstinline!\maketitle!\cmd{\textbackslash maketitle} wird eine Titelseite ohne Navigation gesetzt. Dieser Stil läßt sich auch vor einer Folie explizit setzen durch Verwendung des Befehls\\ \lstinline!\setbeamertemplate{headline}[UzLplain]!\cmd{[UzLplain]}. Alle darauffolgenden Folien sind dann ohne Navigation in der Kopfzeile gesetzt. Auf gleichem wege läßt sich die Fußleiste durch \lstinline!\setbeamertemplate{footline}[UzLplain]! Mit der Option \lstinline!![UzL]! hebt man dies wieder auf.
+Wird der Befehl \lstinline!\maketitle! innerhalb einer Folie aufgerufen, wird das aktuelle Aussehen nicht verändert.
 \missingcmd{setlogo}
 \missingcmd{setlogowidth}
 \section{mögliche weitere Features}
+\begin{itemize}
+	\item spezielle Literaturangabe?
+	\item Logo-Implementierung 1-3 Logos, variable Breite
+	\item ab mehr als einem Logo keine Navigation mehr
+	\item Umgang mit leerem Titel
+\end{itemize}
+
 \section{bekannte Probleme}
-Die Verwendung der Hausschriftart Myriad Pro stellt sich unter \LaTeX\ als eine Herausforderung heraus. Momentan funktioniert das Paket nur im Zusammenspiel mit dem etwas neueren XeTeX-Compiler, eine Anpassung auch an \lstinline!pdflatex! wäre aufgrund der Kompatibillität wünschenswert. Auf die Installation der Schrift soll hier nicht eingegangen werden.
+Die Verwendung der Hausschriftart Myriad Pro stellt unter \LaTeX\ als eine Herausforderung dar. Momentan funktioniert das Paket nur im Zusammenspiel mit dem etwas neueren XeTeX-Compiler, eine Anpassung auch an \lstinline!pdflatex! wäre aufgrund der Kompatibilität wünschenswert. Auf die Installation der Schrift soll hier nicht eingegangen werden.
 \section{weitere Quellen des Paketes}
-Git-Adresse
+Es existiert ein Git-Repository, dass unter der Adresse \href{https://github.com/kellertuer/LaTeXBeamerUzL}{https://github.com/kellertuer/LaTeXBeamerUzL} erreichbar ist.
 Adresse auf der HP
 \newpage
 \end{document}
