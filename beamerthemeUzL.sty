@@ -141,7 +141,12 @@
     	\insertnavigation{.718\paperwidth}
 	\fi
   \end{beamercolorbox}%
-	\vskip-1.1ex
+	\vskip-1.2ex
+	\hspace{.02\paperwidth}
+	%create background color box
+	\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{palette primary}
+	\end{beamercolorbox}
+	\vspace{-.85\paperheight}
 }
 
 \defbeamertemplate{headline}{UzLplain} 
@@ -151,6 +156,7 @@
     \vskip-3.5ex%
 	\hskip.28\paperwidth
   \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
+  % besides menu nothing here
   \end{beamercolorbox}%
 	\vskip-1.1ex
 }
@@ -159,31 +165,17 @@
 \defbeamertemplate*{frametitle}{UzL}
 {%
 	\nointerlineskip%
-	\usebeamerfont{headline}%
-	\nointerlineskip%
-	\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
-		\vfill
-		\hfill
-		\ifUzL@showslogan
-			\pgfuseimage{uzlslogan}
-		\fi
-		\vskip1.3\baselineskip
-	\end{beamercolorbox}%
-	\vskip-.85\paperheight
-	\nointerlineskip%
 	\begin{beamercolorbox}[wd=.95\paperwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
 		\vskip2ex%
-		\usebeamerfont*{frametitle}\insertframetitle%
+		\par{\usebeamerfont*{frametitle}\insertframetitle\strut\par}%
 		\ifx\insertframesubtitle\@empty%
 			\strut\par%
-			\vskip.5ex
-	\end{beamercolorbox}%
 		\else
 			\vskip.5ex
 			\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
-			\vskip.5ex
-	\end{beamercolorbox}%
 		\fi%%
+		\vskip.5ex
+	\end{beamercolorbox}%
 	\nointerlineskip%
 }
 \setbeamersize{text margin left=2em,text margin right=2em}
