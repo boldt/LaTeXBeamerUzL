@@ -132,19 +132,29 @@
 
 \defbeamertemplate*{headline}{UzL} 
 { 
-  \leavevmode
-	\vskip1.8ex\hskip2em\pgfuseimage{uzllogo}
-    \vskip-3.5ex%
-	\hskip.28\paperwidth
-  \begin{beamercolorbox}[ignorebg,ht=2.25ex,dp=3.75ex]{section in head/foot}
-	\ifUzL@displayNavigation
-    	\insertnavigation{.718\paperwidth}
-	\fi
-  \end{beamercolorbox}%
-	\vskip-1.2ex
-	\hspace{.02\paperwidth}
-	%create background color box
-	\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{palette primary}
+\leavevmode
+\vskip.5\baselineskip
+\hspace{.02\paperwidth}
+		\begin{beamercolorbox}[wd=.3166666666666666\paperwidth, ht=.1\paperheight,vmode]{}
+  			\pgfuseimage{uzllogo}
+% Optionen
+% - 1 und Navigation (2 Spalten 316666666667% / 63.3333333333 %, in zweiter Navigation optional, beide links)
+% - 2 immer ohne Navigation (2 Spalten 47.5% beide´, links, rechts)
+% - 3 und Navigation (2 Spalten 31.666667 alle 3, links mitte rechts)
+  		\end{beamercolorbox}
+		\begin{beamercolorbox}[wd=.63333333333\paperwidth, ht=.1\paperheight,vmode]{}
+			\ifUzL@displayNavigation
+    			\insertnavigation{.718\paperwidth}
+			\fi
+  		\end{beamercolorbox}
+		\strut
+		\par
+		\vskip.5\baselineskip
+		\hspace{.02\paperwidth}
+		%
+		%create background color box
+		%
+		\begin{beamercolorbox}[wd=.95\paperwidth,ht=.85\paperheight,leftskip=.025\paperwidth,rightskip=.025\paperwidth  plus1fil,vmode]{palette primary}
 	\end{beamercolorbox}
 	\vspace{-.85\paperheight}
 }
