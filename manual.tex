@@ -5,7 +5,7 @@
 \usepackage{amsmath,amsthm,euscript} % AMS-LaTeX  
 \defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
 \setsansfont[Ligatures={Common}]{Myriad Pro}
-%\setromanfont[Ligatures={Common}]{MinionPro}
+\setromanfont[Ligatures={Common}]{Minion Pro}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{MnSymbol}
 
@@ -27,6 +27,10 @@
 \setlength{\marginparwidth}{3cm}
 \colorlet{maincolor}{black!80}
 
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
 \hypersetup{ 
    pdftitle={LaTeX-Beamer Theme im Corporate Design der Universität zu Lübeck},%
    pdfauthor={Ronny Bergmann},%
@@ -39,15 +43,16 @@
    plainpages=false,
    bookmarksnumbered,
    pdfborder={0 0 0},
-linkcolor=maincolor
+linkcolor=UzLcolor,
+urlcolor=UzLcolor
    }
 
 \addtokomafont{sectioning}{\color{UzLcolor}}
 \setkomafont{descriptionlabel}{\bfseries\color{UzLcolor}}
-\newcommand{\todo}[1]{{\color{red}!}\marginpar{\texttt{\color{red}#1}}}
+\newcommand{\todo}[1]{{\color{red}!}\marginpar{\textrm{\color{red}#1}}}
 \newcommand{\missing}{{\color{red}!}}
-\newcommand{\missingcmd}[1]{\marginpar{\texttt{#1}\ {\color{red}!}}}
-\newcommand{\cmd}[1]{\marginpar{\texttt{#1}}}
+\newcommand{\missingcmd}[1]{\marginpar{\color{UzLcolor}\textrm{#1}\ {\color{red}!}}}
+\newcommand{\cmd}[1]{\marginpar{\color{UzLcolor}\textrm{#1}}}
 
 \defpagestyle{plain}%
 {{\includegraphics[height=2\baselineskip]{logos/unilogo300dpi.png}}{}{}}%
@@ -122,7 +127,7 @@ linkcolor=maincolor
 
 \begin{document}
 	\thispagestyle{empty}
-\title{Ein \LaTeX-Beamer-Theme im Corporate-Design der Universität zu Lübeck\\{\large\normalfont Version 0.8}}
+\title{\vspace{-3\baselineskip}Ein \textnormal{\LaTeX}-Beamer-Theme im Corporate-Design der Universität zu Lübeck\\{\large\normalfont Version 0.9}}
 \author{Ronny Bergmann\\\emph{bergmann@math.uni-luebeck.de}}
 \date{Januar 2011}
 \maketitle
@@ -137,37 +142,41 @@ Dabei sind Stellen, die mit \missing\  markiert sind, noch nicht implementiert.
 
 \section{Paketoptionen}
 Eine Übersicht mit Stichpunktartiger Erklärung findet sich in Tabelle \ref{tab:Paketoptionen}
-\begin{table}
+\begin{table}[hbt]
 	\begin{tabular}{llll}
 		\toprule
 		\textbf{Paketoption} & \textbf{Beschreibung}\\\midrule
 		\lstinline!footline=true|false! & Anzeige der Fußzeile an bzw. \textbf{aus}\\
-		\lstinline!logos=1|2|3! \missing & Anzahl zu definierender Logos, Standard: 1\\
 		\lstinline!naviagation=true|false! & Navigations-Zeile neben dem Logo \textbf{an} bzw. aus.\\
 		\lstinline!frametotal=true|false! & Anzeige der Gesamtfolienanzahl \textbf{an} bzw. aus\\
 		\lstinline!slogan=true|false! & Anzeige des Slogans „Im Focus das Leben“ \textbf{an} bzw. aus\\
 		\lstinline!myriad=true|false! & Verwendung der Hausschriftart Myriad Pro \textbf{an} bzw. aus\\\bottomrule
 	\end{tabular}
-	\caption{Paketoptionen, die bei Aktivierung des Themes mitgegeben werden können}
+	\caption{Paketoptionen, die bei Aktivierung des Themes mitgegeben werden können. Der Standardwert ist jeweils hervorgehoben}
 	\label{tab:Paketoptionen}
 \end{table}
 \section{Befehle}
 Mit dem Befehl \lstinline!\maketitle!\cmd{\textbackslash maketitle} wird eine Titelseite ohne Navigation gesetzt. Dieser Stil läßt sich auch vor einer Folie explizit setzen durch Verwendung des Befehls\\ \lstinline!\setbeamertemplate{headline}[UzLplain]!\cmd{[UzLplain]}. Alle darauffolgenden Folien sind dann ohne Navigation in der Kopfzeile gesetzt. Auf gleichem wege läßt sich die Fußleiste durch \lstinline!\setbeamertemplate{footline}[UzLplain]! Mit der Option \lstinline!![UzL]! hebt man dies wieder auf.
 Wird der Befehl \lstinline!\maketitle! innerhalb einer Folie aufgerufen, wird das aktuelle Aussehen nicht verändert.
-\missingcmd{setlogo}
-\missingcmd{setlogowidth}
-\section{mögliche weitere Features}
-\begin{itemize}
-	\item spezielle Literaturangabe?
-	\item Logo-Implementierung 1-3 Logos, variable Breite
-	\item ab mehr als einem Logo keine Navigation mehr
-	\item Umgang mit leerem Titel
-\end{itemize}
 
-\section{bekannte Probleme}
+Die Logos im Header lassen sich mit dem Befehl \lstinline!\setlogo[3]!\cmd{\textbackslash setlogo} verändern. Dieser Befehl erfordert 3 Parameter. Zunächst die Nummer des Logos, dann die gewünsche Breite und schlussendlich die Bilddatei des Logos. Die Anzahl Logos ist auf 3 beschränkt, so dass bei der Breite höchstens ein Drittel der Textbreite zu empfehlen ist.
+
+Ein Logo wird linksbündig gesetzt, das zweite rechtsbündig und das dritte mittig. Ist die Navigation auf sichtbar gestellt, werden nur auf der Titelfolie alle 3 Logos angezeigt, auf den darauffolgenden nur das erste Logo linksbündig und daneben die Navigation. Ohne die Navigation werde stets alle definierten Logos angezeigt.
+
+Möchte man während der Präsentation die Logos ändern, geschieht dies ebenso mit dem Befehl \lstinline!\setlogo!. Zum entfernen setzt man entweder den Parameter der Bilddatei auf leer oder nutzt den Befehl \lstinline!\clearlogo!\cmd{\textbackslash clearlogo}, der als Parameter lediglich die Nummer des Logos benötigt.
+
+\section{Mögliche weitere Features}
+Für Literatur liegen standardisierte Stile aus LaTeX-Beamer vor. Hier könnte man mit einem eigenen Buch/Artikel-Icon einen eigenen Stil dazu etablieren, der zum Corporate Design passt. Für weitere Ideen und Erweiterungsvorschläge steht die Homepage zur Verfügung (s. Abschnitt \ref{sec:HP}).
+
+\section{Bekannte Probleme}
 Die Verwendung der Hausschriftart Myriad Pro stellt unter \LaTeX\ als eine Herausforderung dar. Momentan funktioniert das Paket nur im Zusammenspiel mit dem etwas neueren XeTeX-Compiler, eine Anpassung auch an \lstinline!pdflatex! wäre aufgrund der Kompatibilität wünschenswert. Auf die Installation der Schrift soll hier nicht eingegangen werden.
-\section{weitere Quellen des Paketes}
-Es existiert ein Git-Repository, dass unter der Adresse \href{https://github.com/kellertuer/LaTeXBeamerUzL}{https://github.com/kellertuer/LaTeXBeamerUzL} erreichbar ist.
-Adresse auf der HP
-\newpage
+\section{weitere Quellen des Paketes}\label{sec:HP}
+Es existiert ein Git-Repository, dass unter der Adresse\\ \href{https://github.com/kellertuer/LaTeXBeamerUzL}{https://github.com/kellertuer/LaTeXBeamerUzL}\\
+erreichbar ist.
+\section{Lizenz}
+Die Vorlage ist unter der Beerware-Lizenz veröffentlicht. Diese lautet:\\[1\baselineskip]
+\textrm{"THE BEER-WARE LICENSE" \ (Rev. 42):\\
+Ronny Bergmann <bergmann@math.uni-luebeck.de> wrote this file. As long as you retain this notice you
+can do whatever you want with this stuff. If we meet some day, and you think 
+this stuff is worth it, you can buy me a beer or coffee in return.}
 \end{document}
