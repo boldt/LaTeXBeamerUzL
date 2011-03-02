@@ -11,15 +11,13 @@
 %
 \defbeamertemplate*{title page}{UzL}
 {
-	\nointerlineskip%
-	\vspace{-1.3ex}
-	\begin{beamercolorbox}[wd=.95\paperwidth, ht=.85\paperheight,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
-			\centering
-		    {
-		    	\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle\par
-		    	\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}\insertsubtitle
-			}%
-		    \vskip6ex
+	\mbox{}\vfill
+	\centering
+	{
+		\usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle\par
+		\usebeamercolor[fg]{subtitle}\usebeamerfont{subtitle}\insertsubtitle
+	}%
+	\vskip6ex
 			{
 		    	\usebeamercolor[fg]{author}\usebeamerfont{author}\insertauthor\par
 			\vskip6ex
@@ -38,8 +36,5 @@
 			\ifUzL@showslogan
 				\hfill\hskip-1.8em\pgfuseimage{uzlslogan}
 			\fi
-			\begin{beamercolorbox}[wd=.9em]{frametitle}
-			\end{beamercolorbox}
-			\vskip.7\baselineskip
-	  \end{beamercolorbox}%
+	\mbox{}
 }
