@@ -3,40 +3,40 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>beamerinnerthemeUzL.sty</string>
+	<string>example-pres.tex</string>
 	<key>documents</key>
 	<array>
 		<dict>
 			<key>filename</key>
 			<string>beamercolorthemeUzL.sty</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T08:23:50Z</date>
+			<date>2011-03-02T13:20:35Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>beamerinnerthemeUzL.sty</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T09:50:01Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2011-03-02T13:17:50Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>beamerthemeUzL.sty</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T09:50:01Z</date>
+			<date>2011-03-02T13:22:07Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>example-pres.tex</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T09:46:45Z</date>
+			<date>2011-03-02T13:22:07Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>manual.tex</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T09:27:39Z</date>
+			<date>2011-03-02T12:55:34Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -69,21 +69,35 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>4</integer>
+			<integer>5</integer>
+		</dict>
+		<key>beamerthemeUzL.sty</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>190</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>175</integer>
 		</dict>
 		<key>example-pres.tex</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>36</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>19</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
+			<integer>0</integer>
 		</dict>
 		<key>manual.tex</key>
 		<dict>
@@ -120,6 +134,7 @@
 	<array>
 		<string>beamerinnerthemeUzL.sty</string>
 		<string>beamercolorthemeUzL.sty</string>
+		<string>beamerthemeUzL.sty</string>
 		<string>manual.tex</string>
 		<string>example-pres.tex</string>
 	</array>
