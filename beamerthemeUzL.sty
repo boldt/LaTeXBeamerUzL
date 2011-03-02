@@ -109,6 +109,7 @@
 	\else%
 		\setcounter{UzL@logonum}{\maxof{\value{UzL@logonum}}{#1}}
 		\ifcase #1 %0 do nothing
+		\PackageError{beamerthemeUzL}{A Logo 0 can't be defined.}{The Logo index should be between including 1 and 3.}
 		\or %1
 		\pgfdeclareimage[width=#2]{UzLlogo1}{#3}%
 		\UzL@logoOneusedtrue%
@@ -118,12 +119,16 @@
 		\or %3
 		\pgfdeclareimage[width=#2]{UzLlogo3}{#3}%
 		\UzL@logoThreeusedtrue%
+		\else
+		\PackageError{beamerthemeUzL}{A Logo #1 can't be defined.}{The Logo index should be between including 1 and 3.}
 		\fi
 }
 \newcommand{\clearlogo}[1]{%
 	\if\value{UzLlogonum}=#1
 	\setcounter{UzL@logonum}{\value{UzL@logonum} - 1}%
+	\fi%
 	\ifcase #1 %0 clear specific image
+	\PackageError{beamerthemeUzL}{A Logo 0 can't be deleted.}{The Logo index should be between including 1 and 3.}
 		\or %1
 			\pgfdeclareimage{UzLlogo1}{}%
 			\UzL@logoOneusedfalse%
@@ -133,6 +138,8 @@
 		\or %3
 			\pgfdeclareimage{UzLlogo3}{}%
 			\UzL@logoTwousedfalse%
+		\else
+			\PackageError{beamerthemeUzL}{A Logo #1 can't be deleted.}{The Logo index should be between including 1 and 3.}%
 		\fi%
 }
 
@@ -144,46 +151,51 @@
 % - 3 und Navigation (2 Spalten 31.666667 alle 3, links mitte rechts)
 %
 \newcommand{\UzL@LogoColumnOutput}[1]{%
-	\if#1=1 %switches automatically to 1 logo + navigation
-			\begin{beamercolorbox}[wd=.3166666666666666\paperwidth,ht=\UzL@headheight,vmode]{}
-	  		\ifUzL@logoOneused\pgfuseimage{UzLlogo1}\fi
-	  		\end{beamercolorbox}
-			\begin{beamercolorbox}[wd=.63333333333\paperwidth,ht=\UzL@headheight,vmode]{}
-    			\insertnavigation{.718\paperwidth}
-	  		\end{beamercolorbox}
+	\if#1N %switches automatically to 1 logo + navigation
+		\hspace{-.006\paperwidth} %hack :(
+		\begin{beamercolorbox}[wd=.33\UzL@innerwidth,ht=\UzL@headheight,vmode,left]{}
+  			\ifUzL@logoOneused\pgfuseimage{UzLlogo1}\fi%
+  		\end{beamercolorbox}\hspace{-0.1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.67\UzL@innerwidth,ht=\UzL@headheight,vmode,left]{}
+   			\insertnavigation{.718\paperwidth}
+  		\end{beamercolorbox}
 	\else % Never display navigation
 	\ifcase \value{UzL@logonum} %depending on the number of logos
 		\or %1 Logo
-		\begin{beamercolorbox}[wd=.5\UzL@innerwidth,ht=\UzL@headheight,vmode]{}
+		\begin{beamercolorbox}[wd=.5\UzL@innerwidth,ht=\UzL@headheight,vmode,left]{}
 	  		\ifUzL@logoOneused\pgfuseimage{UzLlogo1}\fi
   		\end{beamercolorbox}
 		\or %2 logos
-		\begin{beamercolorbox}[wd=.5\UzL@innerwidth,ht=\UzL@headheight,vmode]{}
+		\begin{beamercolorbox}[wd=.5\UzL@innerwidth,ht=\UzL@headheight,vmode,left]{}
 	  		\ifUzL@logoOneused\pgfuseimage{UzLlogo1}\fi
-  		\end{beamercolorbox}
-		\begin{beamercolorbox}[wd=.5\UzL@innerwidth,ht=\UzL@headheight,vmode]{}
-  			\flushright%
+  		\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.5\UzL@innerwidth,ht=\UzL@headheight,vmode,right]{}
+  			\hfill
 	  		\ifUzL@logoTwoused\pgfuseimage{UzLlogo2}\fi
   		\end{beamercolorbox}
 		\or %3 logos
-		\begin{beamercolorbox}[wd=.3333333333\UzL@innerwidth,ht=\UzL@headheight,vmode]{}
+		\begin{beamercolorbox}[wd=.333\UzL@innerwidth,ht=\UzL@headheight,vmode,left]{}
 	  		\ifUzL@logoOneused\pgfuseimage{UzLlogo1}\fi
-  		\end{beamercolorbox}
-		\begin{beamercolorbox}[wd=.3333333333\UzL@innerwidth,ht=\UzL@headheight,vmode]{}
-  			\centering
+  		\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.333\UzL@innerwidth,ht=\UzL@headheight,vmode,center]{}
 	  		\ifUzL@logoTwoused\pgfuseimage{UzLlogo2}\fi
-  		\end{beamercolorbox}
-		\begin{beamercolorbox}[wd=.33333333333\UzL@innerwidth,ht=\UzL@headheight,vmode]{}
-  			\raggedright
-	  		\ifUzL@logoThreeused\pgfuseimage{UzLlogo3}\fi
+  		\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+		\begin{beamercolorbox}[wd=.333\UzL@innerwidth,ht=\UzL@headheight,vmode,right]{}
+			\ifUzL@logoThreeused\pgfuseimage{UzLlogo3}\fi
   		\end{beamercolorbox}
 		\fi%
 	\fi%
 }
-
-%\pgfdeclareimage[width=.25\paperwidth]{uzllogo}{logos/mathlogo300dpi}
-
-\setlogo{1}{.25\paperwidth}{logos/unilogo300dpi.png}
+%
+% Std. Logo
+%
+\IfFileExists {logos/unilogo300dpi.png}
+{%
+\setlogo{1}{.25\paperwidth}{logos/unilogo300dpi.png}%
+}{%
+\ClassWarningNoLine{beamerthemeUzL}{%
+Missing Logo: File logo/unilogo300dpi.png not found!}{}
+}
 %
 % Slogan Image
 %
@@ -204,18 +216,18 @@
 		\centering
 		\hbox{%
 		\hspace{0.0001pt}
-			\begin{beamercolorbox}[wd=.333333333333333\UzL@innerwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\begin{beamercolorbox}[wd=.333\UzL@innerwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
 			\usebeamerfont{author in head/foot}\insertshortauthor%
 			\ifx\insertshortinstitute\@empty%
 			\ %
 			\else%
 				~~(\insertshortinstitute)%
 			\fi%
-			\end{beamercolorbox}%
-			\begin{beamercolorbox}[wd=.333333333333333\UzL@innerwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+			\begin{beamercolorbox}[wd=.333\UzL@innerwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
 				\usebeamerfont{title in head/foot}\insertshorttitle
-			\end{beamercolorbox}%
-			\begin{beamercolorbox}[wd=.333333333333333\UzL@innerwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\end{beamercolorbox}\hspace{-1pt}%Hacked up to now
+			\begin{beamercolorbox}[wd=.333\UzL@innerwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
 				\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
 				\insertframenumber{}%
 				\ifUzL@displayTotalFramenumber%
@@ -237,9 +249,9 @@
 \hspace{.02\paperwidth}
 		% Header Output
 		\ifUzL@displayNavigation%
-			\UzL@LogoColumnOutput{1}%
+			\UzL@LogoColumnOutput{N}%
 		\else%
-			\UzL@LogoColumnOutput{0}%
+			\UzL@LogoColumnOutput{}%
 		\fi%
 		\strut
 		\par
@@ -258,7 +270,7 @@
 \leavevmode
 \vskip.5\baselineskip
 \hspace{.02\paperwidth}
-	\UzL@LogoColumnOutput{0}%
+	\UzL@LogoColumnOutput{}%
 		\strut
 		\par
 		\vskip.5\baselineskip
