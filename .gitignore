@@ -1,8 +1,11 @@
-*.zip
 *.aux
+*.fdb_latexmk
 *.log
 *.nav
 *.out
 *.snm
 *.synctex.gz
 *.toc
+*.tmproj
+*.zip
+logos/mathlogo300dpi.png
