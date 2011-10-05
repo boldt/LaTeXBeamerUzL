@@ -7,20 +7,26 @@
 % can do whatever you want with this stuff. If we meet some day, and you think 
 % this stuff is worth it, you can buy me a beer or coffee in return.
 %
-\ProvidesPackage{beamercolorthemeUzL}[2010/12/10 v1.0 beamer color theme in the corporate design of the University of Luebeck]
+% Lukas ruge@itm.uni-luebeck.de then took all of this and played with it until it looked like he wanted. This is not the 
+% original theme but a play on it.
+% It throws a shit load of warnings, which are all his fault so all beer and coffee for this goes to Ronny, the blame 
+% can rest on Lukas.
+%
+
+\ProvidesPackage{beamercolorthemeITM}[2011/10/05 v1.0 beamer color theme in the corporate design of the University of Luebeck]
 
 \mode<presentation>
 
 \definecolor{uzlmain}{RGB}{0,75,90}
-\definecolor{uzlgreen}{RGB}{7,98,57} % Lukas: #076239
+\definecolor{uzlgreen}{RGB}{160,187,47}
 %TODO
-\definecolor{uzlred}{RGB}{91,15,0} % Lukas: #5b0f00
+\definecolor{uzlred}{RGB}{195,26,53}
 
 
 \setbeamercolor*{structure}{fg=uzlmain,bg=white}
 % Color
 
-\setbeamercolor*{palette primary}{use=structure,fg=uzlmain,bg=uzlmain!10!white}
+\setbeamercolor*{palette primary}{use=structure,fg=uzlmain,bg=white}
 \setbeamercolor*{palette secondary}{use=structure,fg=uzlmain,bg=structure.bg}
 \setbeamercolor*{palette tertiary}{use=structure,fg=uzlmain,bg=structure.bg}
 \setbeamercolor*{palette quaternary}{fg=uzlmain,bg=uzlmain!15!white}
@@ -48,9 +54,9 @@
 \setbeamercolor*{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
 \setbeamercolor*{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
 
-\setbeamercolor*{author in head/foot}{parent=palette quarternary, fg=uzlmain, bg=uzlmain!10!white}
-\setbeamercolor*{title in head/foot}{parent=palette quarternary, fg=black, bg=uzlmain!10!white}
-\setbeamercolor*{date in head/foot}{parent=palette quarternary, fg=uzlmain, bg=uzlmain!10!white}
+\setbeamercolor*{author in head/foot}{parent=palette quarternary, fg=white, bg=uzlmain}
+\setbeamercolor*{title in head/foot}{parent=palette quarternary, fg=white, bg=uzlmain}
+\setbeamercolor*{date in head/foot}{parent=palette quarternary, fg=white, bg=uzlmain}
 
 \setbeamercolor*{section in head/foot}{parent=palette tertiary, fg=uzlmain,bg=white}
 \setbeamercolor*{subsection in head/foot}{parent=palette primary,fg=uzlmain,bg=white}
