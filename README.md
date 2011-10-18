@@ -8,8 +8,8 @@ Lukas Ruge <ruge@itm.uni-luebeck.de>. Vielen Dank für die Hilfe
 
 ## Versionen
 
-0.91 Erweiterung um eine Vorlage des ITM zuschaltbar per option ITMtheme
-0.9 Erste Version des Themes und Eröffnung des Repositories hier
+ * 0.91 Erweiterung um eine Vorlage des ITM zuschaltbar per option ITMtheme
+ * 0.9 Erste Version des Themes und Eröffnung des Repositories hier
 
 	% Ronny Bergmann <bergmann@math.uni-luebeck.de> wrote this file. As long as you retain this notice you
 	% can do whatever you want with this stuff. If we meet some day, and you think 
