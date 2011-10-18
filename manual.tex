@@ -150,22 +150,28 @@ Eine Übersicht mit Stichpunktartiger Erklärung findet sich in Tabelle \ref{tab
 		\lstinline!navigation=true|false! & Navigations-Zeile neben dem Logo \textbf{an} bzw. aus.\\
 		\lstinline!frametotal=true|false! & Anzeige der Gesamtfolienanzahl \textbf{an} bzw. aus\\
 		\lstinline!slogan=true|false! & Anzeige des Slogans „Im Focus das Leben“ \textbf{an} bzw. aus\\
-		\lstinline!myriad=true|false! & Verwendung der Hausschriftart Myriad Pro \textbf{an} bzw. aus\\\bottomrule
+		\lstinline!myriad=true|false! & Verwendung der Hausschriftart Myriad Pro \textbf{an} bzw. aus\\
+		\lstinline!ITMtheme! & Verwendung der dunkleren Theme-Vorlage des Instituts für Telematik\\
+		\lstinline!UzLTheme! & Verwendung des Standard-Themes der Universität (Standard)\\\bottomrule
 	\end{tabular}
 	\caption{Paketoptionen, die bei Aktivierung des Themes mitgegeben werden können. Der Standardwert ist jeweils hervorgehoben}
 	\label{tab:Paketoptionen}
 \end{table}
 \section{Befehle}
 Mit dem Befehl \lstinline!\maketitle!\cmd{\textbackslash maketitle} wird eine Titelseite ohne Navigation gesetzt. Dieser Stil läßt sich auch vor einer Folie explizit setzen durch Verwendung des Befehls\\ \lstinline!\setbeamertemplate{headline}[UzLplain]!\cmd{[UzLplain]}. Alle darauffolgenden Folien sind dann ohne Navigation in der Kopfzeile gesetzt. Auf gleichem wege läßt sich die Fußleiste durch \lstinline!\setbeamertemplate{footline}[UzLplain]! Mit der Option \lstinline!![UzL]! hebt man dies wieder auf.
-Wird der Befehl \lstinline!\maketitle! innerhalb einer Folie aufgerufen, wird das aktuelle Aussehen nicht verändert.
+Wird der Befehl \lstinline!\maketitle! innerhalb einer Folie aufgerufen, wird das aktuelle Aussehen nicht verändert. Dies ist analog mit \lstinline![ITM]! bzw. \lstinline!ITMplain! auch für das Theme des Instituts für Telematik umgesetzt.
 
 Die Logos im Header lassen sich mit dem Befehl \lstinline!\setlogo[3]!\cmd{\textbackslash setlogo} verändern. Dieser Befehl erfordert 3 Parameter. Zunächst die Nummer des Logos, dann die gewünsche Breite und schlussendlich die Bilddatei des Logos. Die Anzahl Logos ist auf 3 beschränkt, so dass bei der Breite höchstens ein Drittel der Textbreite zu empfehlen ist.
+
+Für das Theme der Universität empfielt sich eine Breite des Uni-Logos von \lstinline!.25\textwidth!, für das Theme des Instituts für Telematik \lstinline!.18\textwidth!, da dieses schmäler gesetzt ist.
 
 Ein Logo wird linksbündig gesetzt, das zweite rechtsbündig und das dritte mittig. Ist die Navigation auf sichtbar gestellt, werden nur auf der Titelfolie alle 3 Logos angezeigt, auf den darauffolgenden nur das erste Logo linksbündig und daneben die Navigation. Ohne die Navigation werde stets alle definierten Logos angezeigt.
 
 Möchte man während der Präsentation die Logos ändern, geschieht dies ebenso mit dem Befehl \lstinline!\setlogo!. Zum entfernen setzt man entweder den Parameter der Bilddatei auf leer oder nutzt den Befehl \lstinline!\clearlogo!\cmd{\textbackslash clearlogo}, der als Parameter lediglich die Nummer des Logos benötigt.
 
 \section{Mögliche weitere Features}
+Das Theme könnte am besten auch per Option \lstinline!theme=UzL|ITM! gewählt werden. Dies ist jedoch nicht ganz so einfach umzusetzen und daher in der aktuellen Version noch auskommentiert und durch die beiden obigen Paketoptionen ersetzt.
+
 Für Literatur liegen standardisierte Stile aus LaTeX-Beamer vor. Hier könnte man mit einem eigenen Buch/Artikel-Icon einen eigenen Stil dazu etablieren, der zum Corporate Design passt. Für weitere Ideen und Erweiterungsvorschläge steht die Homepage zur Verfügung (s. Abschnitt \ref{sec:HP}).
 
 \section{Bekannte Probleme}

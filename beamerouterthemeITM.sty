@@ -85,7 +85,7 @@ Missing Logo: File logo/unilogo300dpi_white.png not found!}{}
 %
 % White Slogan
 %
-\pgfdeclareimage[height=2.75mm]{uzlslogan}{logos/slogan2_white.png}
+\pgfdeclareimage[height=2.75mm]{uzlslogan}{logos/slogan_white.png}
 
 \defbeamertemplate*{footline}{ITM}
 {%
@@ -116,8 +116,6 @@ Missing Logo: File logo/unilogo300dpi_white.png not found!}{}
 		%\vskip.022\paperheight
 \fi
 }
-
-\defbeamertemplate{footline}{ITMplain}{}
 
 \defbeamertemplate*{headline}{ITM} 
 { 
@@ -157,15 +155,15 @@ Missing Logo: File logo/unilogo300dpi_white.png not found!}{}
 {%
 	\nointerlineskip%
 	\begin{beamercolorbox}[wd=\UzL@innerwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
-		\vskip.5ex
+		\vskip.5ex%
 		\par{\usebeamerfont*{frametitle}\insertframetitle\strut\par}%
 		\ifx\insertframesubtitle\@empty%
 			\strut\par%
 		\else
-			\vskip.5ex
+			\vskip.25ex%
 			\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
 		\fi%%
-		\vskip.5ex
+		\vskip.5ex%
 	\end{beamercolorbox}%
 	\nointerlineskip%
 }

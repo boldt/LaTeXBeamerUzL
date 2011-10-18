@@ -3,40 +3,58 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>example-pres.tex</string>
+	<string>beamerouterthemeITM.sty</string>
 	<key>documents</key>
 	<array>
 		<dict>
 			<key>filename</key>
 			<string>beamercolorthemeUzL.sty</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T13:20:35Z</date>
+			<date>2011-10-05T08:38:21Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>beamerinnerthemeUzL.sty</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T13:17:50Z</date>
+			<date>2011-10-05T07:27:41Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>beamerthemeUzL.sty</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T13:22:07Z</date>
+			<date>2011-10-05T08:42:57Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>example-pres.tex</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T13:22:07Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2011-10-05T08:42:17Z</date>
 		</dict>
 		<dict>
 			<key>filename</key>
 			<string>manual.tex</string>
 			<key>lastUsed</key>
-			<date>2011-03-02T12:55:34Z</date>
+			<date>2011-10-05T08:35:38Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>beamercolorthemeITM.sty</string>
+			<key>lastUsed</key>
+			<date>2011-10-05T07:12:29Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>beamerouterthemeUzL.sty</string>
+			<key>lastUsed</key>
+			<date>2011-10-05T08:42:56Z</date>
+		</dict>
+		<dict>
+			<key>filename</key>
+			<string>beamerouterthemeITM.sty</string>
+			<key>lastUsed</key>
+			<date>2011-10-13T15:06:22Z</date>
+			<key>selected</key>
+			<true/>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -48,14 +66,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>33</integer>
 				<key>line</key>
-				<integer>4</integer>
+				<integer>16</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>19</integer>
+			<integer>0</integer>
 		</dict>
 		<key>beamerinnerthemeUzL.sty</key>
 		<dict>
@@ -64,26 +82,54 @@
 				<key>column</key>
 				<integer>1</integer>
 				<key>line</key>
-				<integer>37</integer>
+				<integer>4</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>5</integer>
+			<integer>8</integer>
+		</dict>
+		<key>beamerouterthemeITM.sty</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>8</integer>
+				<key>line</key>
+				<integer>159</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>158</integer>
+		</dict>
+		<key>beamerouterthemeUzL.sty</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>13</integer>
+				<key>line</key>
+				<integer>133</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>158</integer>
 		</dict>
 		<key>beamerthemeUzL.sty</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>12</integer>
 				<key>line</key>
-				<integer>190</integer>
+				<integer>150</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>175</integer>
+			<integer>132</integer>
 		</dict>
 		<key>example-pres.tex</key>
 		<dict>
@@ -92,55 +138,41 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>19</integer>
+				<integer>38</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>16</integer>
 		</dict>
 		<key>manual.tex</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>120</integer>
+				<integer>17</integer>
 				<key>line</key>
-				<integer>130</integer>
+				<integer>149</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>124</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>14</integer>
-				<key>line</key>
-				<integer>172</integer>
-			</dict>
+			<integer>144</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>beamerinnerthemeUzL.sty</string>
 		<string>beamercolorthemeUzL.sty</string>
-		<string>beamerthemeUzL.sty</string>
 		<string>manual.tex</string>
 		<string>example-pres.tex</string>
+		<string>beamerthemeUzL.sty</string>
+		<string>beamerouterthemeITM.sty</string>
+		<string>beamerouterthemeUzL.sty</string>
+		<string>beamerinnerthemeUzL.sty</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{63, 108}, {935, 670}}</string>
+	<string>{{49, 57}, {935, 670}}</string>
 </dict>
 </plist>

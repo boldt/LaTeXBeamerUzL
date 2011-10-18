@@ -164,14 +164,16 @@ Missing Logo: File logo/unilogo300dpi.png not found!}{}
 {%
 	\nointerlineskip%
 	\begin{beamercolorbox}[wd=\UzL@innerwidth,leftskip=.3cm,rightskip=.3cm plus1fil,vmode]{frametitle}
+		\vskip.5ex%
 		\par{\usebeamerfont*{frametitle}\insertframetitle\strut\par}%
 		\ifx\insertframesubtitle\@empty%
 			\strut\par%
 		\else
-			\vskip.5ex
+			\vskip.25ex%
 			\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
 		\fi%%
-%		\vskip.5ex
+		\vskip.5ex%
+		%
 	\end{beamercolorbox}%
 	\nointerlineskip%
 }

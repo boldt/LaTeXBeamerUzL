@@ -10,10 +10,41 @@
 % can do whatever you want with this stuff. If we meet some day, and you think 
 % this stuff is worth it, you can buy me a beer or coffee in return.
 
-\ProvidesPackage{beamerthemeUzL}[2010/12/10 v0.9 beamer theme in the corporate design of the University of Luebeck]
+\ProvidesPackage{beamerthemeUzL}[2010/12/10 v0.91 beamer theme in the corporate design of the University of Luebeck]
 \RequirePackage{ifthen}
 \RequirePackage{calc}
+%
+%
+% Global Color Definitions
+%
+\definecolor{uzlmain}{RGB}{0,75,90}
+\definecolor{uzlgreen}{RGB}{160,187,47} % Corporate: #A0BB2F
+%\definecolor{uzlgreen}{RGB}{7,98,57} % Lukas: #076239
+\definecolor{uzlred}{RGB}{195,24,53} % Corporate #C31835
+%\definecolor{uzlred}{RGB}{91,15,0} % Lukas: #5b0f00
+
 \mode<presentation>
+%
+%  Option: Choose a theme
+%
+\newcounter{UzL@Theme}
+\setcounter{UzL@Theme}{0}% Use UzL
+%
+%\DeclareOptionBeamer{theme}[UzL]{
+%\ifx\equal{#1}{UzL}%
+%\setcounter{UzL@Theme}{0}%
+%\fi%
+%\ifx\equal{#1}{ITM}%
+%\setcounter{UzL@Theme}{1}%
+%\fi%
+%}
+%\ExecuteOptionsBeamer{theme=UzL}
+%alternative commands
+\DeclareOptionBeamer{UzLtheme}{\setcounter{UzL@Theme}{0}}
+\DeclareOptionBeamer{ITMtheme}{\setcounter{UzL@Theme}{1}}
+
+
+
 %
 %  Option: Display Footline on_/off
 %
@@ -35,7 +66,6 @@
 %alternative commands
 \DeclareOptionBeamer{displayslogan}{\Uzl@showslogantrue}
 \DeclareOptionBeamer{hideslogan}{\Uzl@showsloganfalse}
-
 
 %
 %  Option: Use Myriad on_/off
@@ -148,19 +178,26 @@
 }
 
 %
-% Load Theme
+% Load Theme depending on Option theme
 %
-
-\useoutertheme{UzL}
-\usecolortheme{UzL}
-\useinnertheme{UzL}
-\useoutertheme[subsection=false]{miniframes}
-
+\useinnertheme{UzL}%
+\ifnum\value{UzL@Theme}=0%0 Standard Theme use UzL
+	\useoutertheme{UzL}%
+	\usecolortheme{UzL}%
+\fi
+\ifnum\value{UzL@Theme}=1%0 Standard Theme use ITM
+	\useoutertheme{ITM}%
+	\usecolortheme{ITM}%
+\fi
+\ifnum\value{UzL@Theme}>1 %Error0 Standard Theme use ITM
+\PackageError{beamerthemeUzL}{Theme not recognized!}%
+\fi
+%
+% Rest to some standard values
+%
 \setbeamertemplate{blocks}[rounded]
 \setbeamertemplate{items}[ball]
 \setbeamertemplate{sections/subsections in toc}[ball]
 
-\mode
-<all>
-
+\mode<all>
 \makeatletter
