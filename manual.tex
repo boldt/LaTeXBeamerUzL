@@ -158,21 +158,21 @@ Eine Übersicht mit Stichpunktartiger Erklärung findet sich in Tabelle \ref{tab
 	\label{tab:Paketoptionen}
 \end{table}
 \section{Befehle}
-Mit dem Befehl \lstinline!\maketitle!\cmd{\textbackslash maketitle} wird eine Titelseite ohne Navigation gesetzt. Dieser Stil läßt sich auch vor einer Folie explizit setzen durch Verwendung des Befehls\\ \lstinline!\setbeamertemplate{headline}[UzLplain]!\cmd{[UzLplain]}. Alle darauffolgenden Folien sind dann ohne Navigation in der Kopfzeile gesetzt. Auf gleichem wege läßt sich die Fußleiste durch \lstinline!\setbeamertemplate{footline}[UzLplain]! Mit der Option \lstinline!![UzL]! hebt man dies wieder auf.
+Mit dem Befehl \lstinline!\maketitle!\cmd{\textbackslash maketitle} wird eine Titelseite ohne Navigation gesetzt. Dieser Stil läßt sich auch vor einer Folie explizit durch Verwendung des Befehls\\ \lstinline!\setbeamertemplate{headline}[UzLplain]!\cmd{[UzLplain]} setzen. Alle darauffolgenden Folien sind dann ohne Navigation in der Kopfzeile gesetzt. Auf gleichem Wege läßt sich die Fußleiste durch \lstinline!\setbeamertemplate{footline}[UzLplain]! ändern. Die Option \lstinline!![UzL]! hebt dies wieder auf.
 Wird der Befehl \lstinline!\maketitle! innerhalb einer Folie aufgerufen, wird das aktuelle Aussehen nicht verändert. Dies ist analog mit \lstinline![ITM]! bzw. \lstinline!ITMplain! auch für das Theme des Instituts für Telematik umgesetzt.
 
-Die Logos im Header lassen sich mit dem Befehl \lstinline!\setlogo[3]!\cmd{\textbackslash setlogo} verändern. Dieser Befehl erfordert 3 Parameter. Zunächst die Nummer des Logos, dann die gewünsche Breite und schlussendlich die Bilddatei des Logos. Die Anzahl Logos ist auf 3 beschränkt, so dass bei der Breite höchstens ein Drittel der Textbreite zu empfehlen ist.
+Die Logos im Header lassen sich mit dem Befehl \lstinline!\setlogo[3]!\cmd{\textbackslash setlogo} verändern. Dieser Befehl erfordert 3 Parameter. Zunächst die Nummer des Logos, dann die gewünsche Breite und schlussendlich die Bilddatei des Logos. Die Anzahl der Logos ist auf 3 beschränkt, so dass bei der Breite höchstens ein Drittel der Textbreite zu empfehlen ist.
 
-Für das Theme der Universität empfielt sich eine Breite des Uni-Logos von \lstinline!.25\textwidth!, für das Theme des Instituts für Telematik \lstinline!.18\textwidth!, da dieses schmäler gesetzt ist.
+Für das Theme der Universität empfielt sich eine Breite des Uni-Logos von \lstinline!.25\textwidth! und für das Theme des Instituts für Telematik \lstinline!.18\textwidth!, da dieses schmäler gesetzt ist.
 
 Ein Logo wird linksbündig gesetzt, das zweite rechtsbündig und das dritte mittig. Ist die Navigation auf sichtbar gestellt, werden nur auf der Titelfolie alle 3 Logos angezeigt, auf den darauffolgenden nur das erste Logo linksbündig und daneben die Navigation. Ohne die Navigation werde stets alle definierten Logos angezeigt.
 
 Möchte man während der Präsentation die Logos ändern, geschieht dies ebenso mit dem Befehl \lstinline!\setlogo!. Zum entfernen setzt man entweder den Parameter der Bilddatei auf leer oder nutzt den Befehl \lstinline!\clearlogo!\cmd{\textbackslash clearlogo}, der als Parameter lediglich die Nummer des Logos benötigt.
 
 \section{Mögliche weitere Features}
-Das Theme könnte am besten auch per Option \lstinline!theme=UzL|ITM! gewählt werden. Dies ist jedoch nicht ganz so einfach umzusetzen und daher in der aktuellen Version noch auskommentiert und durch die beiden obigen Paketoptionen ersetzt.
+Das Theme könnte am besten auch per Option \lstinline!theme=UzL|ITM! gewählt werden. Dies ist jedoch nicht ganz so einfach umsetzbar, daher in der aktuellen Version noch auskommentiert und durch die beiden obigen Paketoptionen ersetzt.
 
-Für Literatur liegen standardisierte Stile aus LaTeX-Beamer vor. Hier könnte man mit einem eigenen Buch/Artikel-Icon einen eigenen Stil dazu etablieren, der zum Corporate Design passt. Für weitere Ideen und Erweiterungsvorschläge steht die Homepage zur Verfügung (s. Abschnitt \ref{sec:HP}).
+Für Literatur liegen standardisierte Stile aus LaTeX-Beamer vor. Hier könnte man mit einem eigenen Buch/Artikel-Icon einen eigenen Stil etablieren, der zum Corporate Design passt. Für weitere Ideen und Erweiterungsvorschläge steht die Homepage zur Verfügung (s. Abschnitt \ref{sec:HP}).
 
 \section{Bekannte Probleme}
 Die Verwendung der Hausschriftart Myriad Pro stellt unter \LaTeX\ als eine Herausforderung dar. Momentan funktioniert das Paket nur im Zusammenspiel mit dem etwas neueren XeTeX-Compiler, eine Anpassung auch an \lstinline!pdflatex! wäre aufgrund der Kompatibilität wünschenswert. Auf die Installation der Schrift soll hier nicht eingegangen werden.
